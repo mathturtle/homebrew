@@ -35,6 +35,7 @@ class Qt < Formula
   depends_on "d-bus" => :optional
   depends_on "mysql" => :optional
   depends_on "postgresql" => :optional
+  depends_on "sqlite" => :optional
 
   deprecated_option "qtdbus" => "with-d-bus"
   deprecated_option "developer" => "with-developer"
@@ -70,6 +71,7 @@ class Qt < Formula
 
     args << "-plugin-sql-mysql" if build.with? "mysql"
     args << "-plugin-sql-psql" if build.with? "postgresql"
+    args << "-plugin-sql-sqlite" if build.with? "sqlite"
 
     if build.with? "d-bus"
       dbus_opt = Formula["d-bus"].opt_prefix
